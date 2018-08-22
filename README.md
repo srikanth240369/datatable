@@ -66,12 +66,12 @@ Register provider and facade on your `config/app.php` file.
 ```php
 'providers' => [
     ...,
-    Yajra\DataTables\DataTablesServiceProvider::class,
+    Vaadah\DataTables\DataTablesServiceProvider::class,
 ]
 
 'aliases' => [
     ...,
-    'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+    'DataTables' => Vaadah\DataTables\Facades\DataTables::class,
 ]
 ```
 
