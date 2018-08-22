@@ -1,10 +1,10 @@
 <?php
 
-namespace Yajra\DataTables\Utilities;
+namespace Vaadah\DataTables\Utilities;
 
 use DateTime;
-use Illuminate\Support\Str;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Str;
 
 class Helper
 {
@@ -22,7 +22,7 @@ class Helper
         }
 
         $count = 0;
-        $last  = $array;
+        $last = $array;
         $first = [];
         foreach ($array as $key => $value) {
             if ($count == $item['order']) {
@@ -140,7 +140,7 @@ class Helper
      */
     public static function getOrMethod($method)
     {
-        if (! Str::contains(Str::lower($method), 'or')) {
+        if (!Str::contains(Str::lower($method), 'or')) {
             return 'or' . ucfirst($method);
         }
 
@@ -259,7 +259,7 @@ class Helper
     {
         $matches = explode(' as ', Str::lower($str));
 
-        if (! empty($matches)) {
+        if (!empty($matches)) {
             if ($wantsAlias) {
                 return array_pop($matches);
             }
@@ -296,7 +296,7 @@ class Helper
      */
     public static function wildcardString($str, $wildcard, $lowercase = true)
     {
-        $wild  = $wildcard;
+        $wild = $wildcard;
         $chars = preg_split('//u', $str, -1, PREG_SPLIT_NO_EMPTY);
 
         if (count($chars) > 0) {

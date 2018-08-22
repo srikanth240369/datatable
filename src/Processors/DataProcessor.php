@@ -1,9 +1,9 @@
 <?php
 
-namespace Yajra\DataTables\Processors;
+namespace Vaadah\DataTables\Processors;
 
 use Illuminate\Support\Arr;
-use Yajra\DataTables\Utilities\Helper;
+use Vaadah\DataTables\Utilities\Helper;
 
 class DataProcessor
 {
@@ -69,15 +69,15 @@ class DataProcessor
      */
     public function __construct($results, array $columnDef, array $templates, $start)
     {
-        $this->results       = $results;
+        $this->results = $results;
         $this->appendColumns = $columnDef['append'];
-        $this->editColumns   = $columnDef['edit'];
+        $this->editColumns = $columnDef['edit'];
         $this->excessColumns = $columnDef['excess'];
         $this->escapeColumns = $columnDef['escape'];
-        $this->includeIndex  = $columnDef['index'];
-        $this->rawColumns    = $columnDef['raw'];
-        $this->templates     = $templates;
-        $this->start         = $start;
+        $this->includeIndex = $columnDef['index'];
+        $this->rawColumns = $columnDef['raw'];
+        $this->templates = $templates;
+        $this->start = $start;
     }
 
     /**
@@ -89,10 +89,10 @@ class DataProcessor
     public function process($object = false)
     {
         $this->output = [];
-        $indexColumn  = config('datatables.index_column', 'DT_Row_Index');
+        $indexColumn = config('datatables.index_column', 'DT_Row_Index');
 
         foreach ($this->results as $row) {
-            $data  = Helper::convertToArray($row);
+            $data = Helper::convertToArray($row);
             $value = $this->addColumns($data, $row);
             $value = $this->editColumns($value, $row);
             $value = $this->setupRowVariables($value, $row);
@@ -119,7 +119,7 @@ class DataProcessor
     {
         foreach ($this->appendColumns as $key => $value) {
             $value['content'] = Helper::compileContent($value['content'], $data, $row);
-            $data             = Helper::includeInArray($value, $data);
+            $data = Helper::includeInArray($value, $data);
         }
 
         return $data;
@@ -184,7 +184,7 @@ class DataProcessor
      */
     public function flatten(array $array)
     {
-        $return     = [];
+        $return = [];
         $exceptions = ['DT_RowId', 'DT_RowClass', 'DT_RowData', 'DT_RowAttr'];
 
         foreach ($array as $key => $value) {
@@ -230,7 +230,7 @@ class DataProcessor
     {
         $arrayDot = array_filter(array_dot($row));
         foreach ($arrayDot as $key => $value) {
-            if (! in_array($key, $this->rawColumns)) {
+            if (!in_array($key, $this->rawColumns)) {
                 $arrayDot[$key] = e($value);
             }
         }

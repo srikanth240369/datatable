@@ -1,6 +1,6 @@
 <?php
 
-namespace Yajra\DataTables\Utilities;
+namespace Vaadah\DataTables\Utilities;
 
 /**
  * @method mixed input($key, $default = null)
@@ -90,7 +90,7 @@ class Request
      */
     public function orderableColumns()
     {
-        if (! $this->isOrderable()) {
+        if (!$this->isOrderable()) {
             return [];
         }
 
@@ -220,8 +220,8 @@ class Request
      */
     public function isPaginationable()
     {
-        return ! is_null($this->request->input('start')) &&
-            ! is_null($this->request->input('length')) &&
-            $this->request->input('length') != -1;
+        return !is_null($this->request->input('start')) &&
+        !is_null($this->request->input('length')) &&
+        $this->request->input('length') != -1;
     }
 }

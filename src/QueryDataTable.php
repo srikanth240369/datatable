@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Expression;
 use Illuminate\Support\Str;
-use Yajra\DataTables\Utilities\Helper;
+use Vaadah\DataTables\Utilities\Helper;
 
 class QueryDataTable extends DataTableAbstract
 {

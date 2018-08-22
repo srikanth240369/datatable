@@ -8,10 +8,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 use Psr\Log\LoggerInterface;
-use Yajra\DataTables\Contracts\DataTable;
-use Yajra\DataTables\Exceptions\Exception;
-use Yajra\DataTables\Processors\DataProcessor;
-use Yajra\DataTables\Utilities\Helper;
+use Vaadah\DataTables\Contracts\DataTable;
+use Vaadah\DataTables\Exceptions\Exception;
+use Vaadah\DataTables\Processors\DataProcessor;
+use Vaadah\DataTables\Utilities\Helper;
 
 /**
  * @method DataTableAbstract setTransformer($transformer)
@@ -659,7 +659,7 @@ abstract class DataTableAbstract implements DataTable, Arrayable, Jsonable
      */
     protected function transform($results, $processed)
     {
-        if (isset($this->transformer) && class_exists('Yajra\\DataTables\\Transformers\\FractalTransformer')) {
+        if (isset($this->transformer) && class_exists('Vaadah\\DataTables\\Transformers\\FractalTransformer')) {
             return app('datatables.transformer')->transform(
                 $results,
                 $this->transformer,

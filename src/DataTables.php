@@ -145,8 +145,8 @@ class DataTables
      */
     public function getHtmlBuilder()
     {
-        if (!class_exists('\Yajra\DataTables\Html\Builder')) {
-            throw new \Exception('Please install yajra/laravel-datatables-html to be able to use this function.');
+        if (!class_exists('\Vaadah\DataTables\Html\Builder')) {
+            throw new \Exception('Please install vaadah/laravel-datatables-html to be able to use this function.');
         }
 
         return $this->html ?: $this->html = app('datatables.html');
